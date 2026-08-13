@@ -1,0 +1,1835 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ONLICE — Solutions digitales africaines</title>
+<link rel="icon" type="image/png" sizes="32x32" href="onlice-favicon.png">
+<link rel="icon" type="image/png" sizes="16x16" href="onlice-favicon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="onlice-favicon.png">
+<meta name="description" content="Nous créons, structurons et propulsons des solutions pensées pour l’Afrique et le monde.">
+<meta name="theme-color" content="#0A0D12">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://onlice.vercel.app/">
+<meta property="og:title" content="ONLICE — Solutions digitales africaines">
+<meta property="og:description" content="Nous créons, structurons et propulsons des solutions pensées pour l’Afrique et le monde.">
+<meta property="og:image" content="https://onlice.vercel.app/onlice-preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:site_name" content="ONLICE">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ONLICE — Solutions digitales africaines">
+<meta name="twitter:description" content="Nous créons, structurons et propulsons des solutions pensées pour l’Afrique et le monde.">
+<meta name="twitter:image" content="https://onlice.vercel.app/onlice-preview.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+
+<style>
+.card,.project-feature,.pricing-card,.service-card,.team-card,.testimonial-card,.contact-form,.contact-item{
+  background:rgba(255,255,255,.035)!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  border:1px solid rgba(255,255,255,.10)!important;
+  box-shadow:0 18px 54px rgba(11,18,26,.12),0 0 34px rgba(11,110,99,.045)!important;
+}
+
+[data-theme="light"] .card,
+[data-theme="light"] .project-feature,
+[data-theme="light"] .pricing-card,
+[data-theme="light"] .service-card,
+[data-theme="light"] .team-card,
+[data-theme="light"] .testimonial-card,
+[data-theme="light"] .contact-form,
+[data-theme="light"] .contact-item{
+  background:rgba(255,255,255,.13)!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  border-color:rgba(11,18,26,.12)!important;
+  box-shadow:0 18px 54px rgba(11,18,26,.08),0 0 34px rgba(11,110,99,.035)!important;
+}
+
+.main-logo,
+.footer-logo-media,
+.ambient-brand-mark img{
+  background:transparent!important;
+  border:0!important;
+  outline:0!important;
+  object-fit:contain!important;
+  -webkit-mask-image:none!important;
+  mask-image:none!important;
+  filter:none!important;
+}
+
+html[data-theme="dark"] .main-logo,
+html[data-theme="dark"] .footer-logo-media,
+html[data-theme="dark"] .ambient-brand-mark img{
+  mix-blend-mode:screen!important;
+}
+
+html[data-theme="light"] .main-logo,
+html[data-theme="light"] .footer-logo-media,
+html[data-theme="light"] .ambient-brand-mark img{
+  mix-blend-mode:multiply!important;
+}
+
+.logo-dark,
+.logo-light{
+  background:transparent!important;
+  border:0!important;
+  outline:0!important;
+}
+
+.project-card,.ecosystem-project-grid .project-card{
+  position:relative;
+  overflow:hidden;
+  min-height:338px;
+  isolation:isolate;
+}
+
+.project-bg{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  display:block!important;
+  transform:none!important;
+  overflow:hidden;
+}
+
+.project-bg-image{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  opacity:.9;
+  filter:saturate(1.02) contrast(1.03);
+  transition:transform .8s ease,opacity .4s ease;
+  z-index:0;
+}
+
+.project-card:hover .project-bg-image{
+  transform:scale(1.045);
+}
+
+.project-bg::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  background:linear-gradient(180deg,rgba(7,11,15,.04) 0%,rgba(7,11,15,.16) 30%,rgba(7,11,15,.78) 76%,rgba(7,11,15,.94) 100%);
+}
+
+.project-overlay{
+  z-index:2!important;
+  background:linear-gradient(180deg,rgba(6,10,14,.03) 0%,rgba(6,10,14,.08) 32%,rgba(6,10,14,.76) 74%,rgba(6,10,14,.94) 100%)!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+
+.project-card h4,.project-card p,.project-card .project-tag,.project-card .project-visit{
+  position:relative;
+  z-index:3;
+  text-shadow:0 2px 12px rgba(0,0,0,.5);
+}
+
+.project-tag{
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  background:rgba(8,12,16,.32)!important;
+  border-color:rgba(255,255,255,.18)!important;
+}
+
+.project-emoji{
+  display:none!important;
+}
+
+.ecosystem-project-bg.has-media .project-logo-img{
+  display:none!important;
+}
+
+.slideshow{
+  position:relative!important;
+  width:100%!important;
+  height:clamp(285px,32vw,345px)!important;
+  min-height:285px!important;
+  max-height:345px!important;
+  overflow:hidden!important;
+  border-radius:22px!important;
+  isolation:isolate!important;
+  background:#0B121A!important;
+}
+
+.slideshow .slide{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  margin:0!important;
+  padding:30px!important;
+  display:flex!important;
+  align-items:flex-end!important;
+  opacity:0!important;
+  visibility:hidden!important;
+  pointer-events:none!important;
+  z-index:1!important;
+  overflow:hidden!important;
+  background:#0B121A!important;
+  transform:none!important;
+  transition:opacity .9s ease-in-out,visibility .9s ease-in-out!important;
+}
+
+.slideshow .slide.active{
+  opacity:1!important;
+  visibility:visible!important;
+  pointer-events:auto!important;
+  z-index:2!important;
+}
+
+.slideshow .slide-bg-image{
+  position:absolute!important;
+  inset:0!important;
+  width:100%!important;
+  height:100%!important;
+  object-fit:cover!important;
+  object-position:center!important;
+  display:block!important;
+  opacity:.84!important;
+  z-index:0!important;
+  filter:saturate(.82) contrast(1)!important;
+  transition:opacity .9s ease,transform 1.1s ease!important;
+}
+
+.slideshow .slide.active .slide-bg-image{
+  transform:scale(1.01)!important;
+}
+
+.slideshow .slide::before{
+  content:""!important;
+  position:absolute!important;
+  inset:0!important;
+  z-index:1!important;
+  background:linear-gradient(180deg,rgba(7,11,15,.02) 0%,rgba(7,11,15,.10) 42%,rgba(7,11,15,.64) 100%)!important;
+  pointer-events:none!important;
+}
+
+.slideshow .slide-content{
+  position:relative!important;
+  z-index:3!important;
+  max-width:540px!important;
+  width:100%!important;
+}
+
+.slideshow .slide .project-tag{
+  background:rgba(7,11,15,.14)!important;
+  border-color:rgba(255,255,255,.11)!important;
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+}
+
+.slideshow .slide h2{
+  color:#fff!important;
+  font-family:'Syne',sans-serif!important;
+  font-weight:800!important;
+  font-size:clamp(1.55rem,3vw,2rem)!important;
+  margin:9px 0!important;
+  text-shadow:0 3px 18px rgba(0,0,0,.42)!important;
+}
+
+.slideshow .slide p{
+  color:rgba(255,255,255,.86)!important;
+  font-size:.84rem!important;
+  line-height:1.6!important;
+  max-width:470px!important;
+  text-shadow:0 2px 12px rgba(0,0,0,.34)!important;
+}
+
+.slideshow .slide-dots{
+  position:absolute!important;
+  left:50%!important;
+  bottom:15px!important;
+  transform:translateX(-50%)!important;
+  z-index:20!important;
+  display:flex!important;
+  align-items:center!important;
+  justify-content:center!important;
+  gap:8px!important;
+}
+
+.slideshow .slide-dot{
+  width:7px!important;
+  height:7px!important;
+  padding:0!important;
+  border-radius:50%!important;
+  border:1px solid rgba(255,255,255,.32)!important;
+  background:rgba(255,255,255,.25)!important;
+  cursor:pointer!important;
+  transition:transform .3s ease,opacity .3s ease,background .3s ease,box-shadow .3s ease!important;
+}
+
+.slideshow .slide-dot.active{
+  transform:scale(1.28)!important;
+  opacity:1!important;
+  background:#F5560B!important;
+  border-color:#F5560B!important;
+  box-shadow:0 0 10px rgba(245,86,11,.45),0 0 18px rgba(11,110,99,.24)!important;
+}
+
+.pricing-card.featured{
+  overflow:visible!important;
+  position:relative!important;
+  padding-top:18px!important;
+}
+
+.pricing-card.featured .pricing-badge{
+  position:relative!important;
+  top:auto!important;
+  left:auto!important;
+  transform:none!important;
+  display:table!important;
+  margin:0 auto 12px!important;
+  z-index:20!important;
+  box-shadow:0 8px 24px rgba(245,86,11,.22)!important;
+}
+
+.pricing-card.featured .pricing-name{
+  margin-top:0!important;
+}
+
+.scroll-visual-band{
+  background-image:var(--visual-image),var(--visual-fallback)!important;
+  background-size:cover,cover!important;
+  background-position:center,center!important;
+  background-repeat:no-repeat,no-repeat!important;
+  min-height:390px!important;
+}
+
+.compact-visual{
+  min-height:330px!important;
+}
+
+.scroll-visual-band::before{
+  background-image:none!important;
+  opacity:0!important;
+}
+
+.scroll-visual-band:hover::before{
+  opacity:0!important;
+}
+
+.scroll-visual-overlay{
+  backdrop-filter:none!important;
+  -webkit-backdrop-filter:none!important;
+  background:rgba(7,11,15,.48)!important;
+  border-color:rgba(255,255,255,.14)!important;
+  box-shadow:0 20px 60px rgba(0,0,0,.20)!important;
+}
+
+[data-theme="light"] .scroll-visual-overlay{
+  background:rgba(10,15,18,.40)!important;
+  color:#fff!important;
+}
+
+[data-theme="light"] .scroll-visual-overlay p{
+  color:rgba(255,255,255,.82)!important;
+}
+
+.ambient-brand-mark{
+  opacity:.13!important;
+  filter:drop-shadow(0 0 46px rgba(11,110,99,.28)) drop-shadow(0 0 22px rgba(245,86,11,.13))!important;
+}
+
+[data-theme="light"] .ambient-brand-mark{
+  opacity:.095!important;
+  filter:drop-shadow(0 0 42px rgba(245,86,11,.22)) drop-shadow(0 0 22px rgba(11,110,99,.13))!important;
+}
+
+html[data-theme="dark"] body{
+  background:radial-gradient(circle at 10% 18%,rgba(11,110,99,.29),transparent 28%),radial-gradient(circle at 90% 12%,rgba(245,86,11,.25),transparent 26%),radial-gradient(circle at 52% 88%,rgba(20,163,146,.14),transparent 32%),var(--bg-dark)!important;
+}
+
+html[data-theme="light"] body{
+  background:radial-gradient(circle at 10% 18%,rgba(11,110,99,.15),transparent 28%),radial-gradient(circle at 90% 12%,rgba(245,86,11,.13),transparent 26%),radial-gradient(circle at 52% 88%,rgba(20,163,146,.08),transparent 32%),var(--bg-dark)!important;
+}
+
+[data-theme="light"] #cosmos-canvas{
+  opacity:.38!important;
+}
+
+.showcase-video video{
+  height:clamp(420px,56vw,600px)!important;
+}
+
+.btn,.card,.project-card,.project-feature,.social-link,.theme-toggle,.lang-btn,.slide-dot{
+  position:relative;
+}
+
+.touch-neon{
+  animation:touchNeon 1s ease-out both!important;
+}
+
+@keyframes touchNeon{
+  0%{box-shadow:0 0 0 rgba(245,86,11,0),0 0 0 rgba(11,110,99,0);}
+  18%{box-shadow:0 0 0 2px rgba(245,86,11,.8),0 0 20px rgba(245,86,11,.42),0 0 34px rgba(11,110,99,.28);}
+  55%{box-shadow:0 0 0 1px rgba(11,110,99,.55),0 0 18px rgba(11,110,99,.34),0 0 28px rgba(245,86,11,.2);}
+  100%{box-shadow:0 0 0 rgba(245,86,11,0),0 0 0 rgba(11,110,99,0);}
+}
+
+.project-card[data-link=""]{
+  cursor:pointer;
+}
+
+.home-cta-card .cta-title{
+  font-family:'Syne',sans-serif!important;
+  font-size:clamp(1.7rem,5vw,2.8rem)!important;
+  line-height:1.06!important;
+  letter-spacing:-.035em!important;
+  max-width:560px!important;
+  margin:0 auto 20px!important;
+  white-space:normal!important;
+  overflow-wrap:normal!important;
+}
+
+.footer-portrait-shell{
+  position:sticky;
+  top:0;
+  left:0;
+  right:0;
+  width:100%;
+  height:var(--footer-portrait-height,620px);
+  overflow:hidden;
+  z-index:0;
+  pointer-events:none;
+  background:linear-gradient(135deg,rgba(8,12,16,.9),rgba(8,12,16,.66));
+}
+
+.footer-portrait-shell img{
+  position:absolute;
+  top:0;
+  left:50%;
+  width:auto;
+  height:auto;
+  max-width:min(100%,720px);
+  max-height:none;
+  transform:translateX(-50%);
+  object-fit:contain;
+  object-position:center top;
+  display:block;
+  opacity:.48;
+  filter:saturate(.94) contrast(1.05);
+}
+
+.footer-portrait-shell::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(180deg,rgba(6,10,14,.42) 0%,rgba(6,10,14,.30) 24%,rgba(6,10,14,.64) 64%,rgba(6,10,14,.94) 100%);
+}
+
+footer#mainFooter{
+  position:relative;
+  overflow:visible;
+  min-height:720px;
+  padding:0 0 54px;
+  background:transparent!important;
+}
+
+footer#mainFooter .footer-grid{
+  position:relative;
+  z-index:2;
+  margin-top:-1px;
+}
+
+footer#mainFooter .footer-bottom{
+  position:relative;
+  z-index:3;
+}
+
+footer#mainFooter .footer-brand,
+footer#mainFooter .footer-col{
+  background:rgba(7,11,15,.18);
+  border:1px solid rgba(255,255,255,.12);
+  border-radius:24px;
+  padding:22px;
+  box-shadow:0 18px 48px rgba(0,0,0,.12);
+}
+
+footer#mainFooter .footer-brand p,
+footer#mainFooter .footer-col a,
+footer#mainFooter .footer-col h6,
+footer#mainFooter .footer-bottom p,
+footer#mainFooter .footer-bottom-links a{
+  position:relative;
+  z-index:2;
+}
+
+[data-theme="light"] footer#mainFooter .footer-brand,
+[data-theme="light"] footer#mainFooter .footer-col{
+  background:rgba(255,255,255,.16);
+  border-color:rgba(11,18,26,.14);
+}
+
+[data-theme="light"] .footer-portrait-shell{
+  background:linear-gradient(135deg,rgba(245,248,247,.92),rgba(233,240,238,.74));
+}
+
+[data-theme="light"] .footer-portrait-shell img{
+  opacity:.34;
+  mix-blend-mode:multiply;
+  filter:saturate(.92) contrast(1.04);
+}
+
+[data-theme="light"] .footer-portrait-shell::after{
+  background:linear-gradient(180deg,rgba(240,246,244,.24) 0%,rgba(240,246,244,.30) 20%,rgba(245,248,247,.54) 62%,rgba(245,248,247,.90) 100%);
+}
+
+@media(min-width:769px){
+  .footer-portrait-shell{
+    display:none!important;
+  }
+
+  footer#mainFooter{
+    min-height:700px!important;
+  }
+}
+
+@media(max-width:768px){
+  .showcase-video video{
+    height:390px!important;
+  }
+
+  .scroll-visual-band{
+    min-height:340px!important;
+  }
+
+  .project-card,.ecosystem-project-grid .project-card{
+    min-height:320px!important;
+  }
+
+  .slideshow{
+    height:285px!important;
+    min-height:285px!important;
+  }
+
+  .slideshow .slide{
+    padding:22px!important;
+  }
+
+  .slideshow .slide h2{
+    font-size:1.42rem!important;
+  }
+
+  .slideshow .slide p{
+    font-size:.76rem!important;
+    line-height:1.5!important;
+  }
+
+  .pricing-card.featured{
+    padding-top:16px!important;
+  }
+
+  .home-cta-card .cta-title{
+    font-size:clamp(1.65rem,8vw,2.35rem)!important;
+    line-height:1.06!important;
+  }
+
+  footer#mainFooter{
+    min-height:980px;
+    padding:0 0 36px;
+  }
+
+  .footer-portrait-shell{
+    top:0;
+  }
+
+  .footer-portrait-shell img{
+    object-position:center top;
+    opacity:.42;
+    max-width:min(100%,520px);
+  }
+
+  footer#mainFooter .footer-brand,
+  footer#mainFooter .footer-col{
+    border-radius:20px;
+    background:rgba(7,11,15,.20);
+  }
+
+  [data-theme="light"] footer#mainFooter .footer-brand,
+  [data-theme="light"] footer#mainFooter .footer-col{
+    background:rgba(255,255,255,.20);
+  }
+}
+
+@media(max-width:480px){
+  .showcase-video video{
+    height:360px!important;
+  }
+
+  .scroll-visual-band{
+    min-height:320px!important;
+  }
+
+  .slideshow{
+    height:265px!important;
+    min-height:265px!important;
+  }
+
+  .slideshow .slide{
+    padding:19px!important;
+  }
+
+  .slideshow .slide h2{
+    font-size:1.35rem!important;
+  }
+
+  .slideshow .slide p{
+    font-size:.72rem!important;
+    line-height:1.5!important;
+  }
+
+  .home-cta-card .cta-title{
+    font-size:1.9rem!important;
+    line-height:1.08!important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<canvas id="cosmos-canvas"></canvas>
+
+<div class="ambient-brand-mark" aria-hidden="true">
+  <img src="onlice-icon.png" alt="" class="logo-dark">
+  <img src="onlice-favicon.png" alt="" class="logo-light">
+</div>
+
+<div class="cookie-banner" id="cookieBanner">
+  <div class="cookie-text">
+    <p>
+      <span data-i18n="cookieText">Nous utilisons des cookies pour améliorer votre expérience. En continuant, vous acceptez notre</span>
+      <a onclick="navigate('cookies')" data-i18n="cookieLinkText">politique de cookies</a>.
+    </p>
+  </div>
+
+  <div class="cookie-actions">
+    <button class="btn btn-glass btn-sm" onclick="rejectCookies()" data-i18n="cookieReject">Refuser</button>
+    <button class="btn btn-primary btn-sm" onclick="acceptCookies()" data-i18n="cookieAccept">Accepter</button>
+  </div>
+</div>
+
+<div class="notif" id="notif">
+  <span class="notif-icon" id="notifIcon">✅</span>
+  <p id="notifText">Message envoyé avec succès !</p>
+</div>
+
+<div class="call-modal-overlay" id="callModalOverlay" onclick="handleOverlayClick(event)">
+  <div class="call-modal">
+    <button class="call-modal-close" onclick="closeCallModal()">✕</button>
+    <div class="call-modal-body" id="callModalBody">
+      <div class="call-spinner"></div>
+      <h4 data-i18n="callPendingTitle">Demande en cours de traitement…</h4>
+      <p data-i18n="callPendingText">Merci de patienter un instant, nous préparons votre rendez-vous.</p>
+    </div>
+  </div>
+</div>
+
+<nav>
+  <a href="#" onclick="navigate('home')" class="nav-logo-container">
+    <div class="logo-wrapper">
+      <img src="onlice-icon.png" alt="onlice" class="main-logo logo-dark">
+      <img src="onlice-favicon.png" alt="onlice" class="main-logo logo-light">
+      <span class="nav-logo-name">onli<span class="logo-accent">c</span>e</span>
+      <div class="neon-line"></div>
+    </div>
+  </a>
+
+  <ul class="nav-links" id="navLinks">
+    <li><a onclick="navigate('home')" data-i18n="navHome">Accueil</a></li>
+    <li><a onclick="navigate('services')" data-i18n="navServices">Services</a></li>
+    <li><a onclick="navigate('about')" data-i18n="navAbout">À Propos</a></li>
+    <li><a onclick="navigate('portfolio')" data-i18n="navPortfolio">Projets</a></li>
+    <li><a onclick="navigate('contact')" data-i18n="navContact">Contact</a></li>
+  </ul>
+
+  <div class="nav-actions">
+    <div class="mobile-controls">
+      <button class="lang-btn" id="langBtn" onclick="toggleLang()">EN</button>
+      <button class="theme-toggle" onclick="toggleTheme()" title="Toggle theme">
+        <div class="theme-dot">☀️</div>
+      </button>
+    </div>
+
+    <button class="btn btn-primary btn-sm pc-only" onclick="navigate('contact')" data-i18n="navCTA">Démarrer un projet</button>
+
+    <div class="hamburger-wrapper">
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()">☰</button>
+    </div>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-menu" onclick="toggleMenu()">✕</button>
+  <a onclick="navigate('home')" data-i18n="navHome">Accueil</a>
+  <a onclick="navigate('services')" data-i18n="navServices">Services</a>
+  <a onclick="navigate('about')" data-i18n="navAbout">À Propos</a>
+  <a onclick="navigate('portfolio')" data-i18n="navPortfolio">Projets</a>
+  <a onclick="navigate('contact')" data-i18n="navContact">Contact</a>
+</div>
+
+<div class="page active" id="page-home">
+
+  <div class="hero">
+    <div class="orb" style="width:600px;height:600px;background:radial-gradient(var(--c-orange),transparent);top:-100px;right:-200px;"></div>
+    <div class="orb" style="width:400px;height:400px;background:radial-gradient(var(--c-teal),transparent);bottom:0;left:-100px;"></div>
+
+    <div class="hero-badge">
+      <div class="hero-badge-dot"></div>
+      <span data-i18n="heroBadge">L'Afrique Numérique est en marche</span>
+    </div>
+
+    <h1 class="hero-title">
+      <span data-i18n="heroLine1">Nous créons</span><br>
+      <span class="grad-text" data-i18n="heroLine2">le mouvement</span><br>
+      <span data-i18n="heroLine3">qui vous propulse.</span>
+    </h1>
+
+    <p class="hero-sub" data-i18n="heroSub">onlice accompagne les marques et entreprises dans leur croissance grâce à des solutions créatives, innovantes et performantes — de la stratégie au produit fini.</p>
+
+    <div class="hero-cta">
+      <button class="btn btn-primary" onclick="navigate('contact')" data-i18n="heroCTA1">Démarrer un projet 🚀</button>
+      <button class="btn btn-glass" onclick="navigate('services')" data-i18n="heroCTA2">Explorer nos services →</button>
+    </div>
+
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      <span data-i18n="heroScroll">Scroll</span>
+    </div>
+  </div>
+
+  <div class="ticker-wrap">
+    <div class="ticker" id="ticker"></div>
+  </div>
+
+  <div class="section visual-video-section">
+    <div class="media-heading">
+      <span class="section-label" data-i18n="showcaseLabel">En mouvement</span>
+      <h2 class="section-title" data-i18n="showcaseTitle">Une idée devient plus forte quand on la voit vivre.</h2>
+      <p class="section-sub" data-i18n="showcaseSub">Présentez ici votre vidéo de démonstration ou votre manifeste visuel Onlice.</p>
+    </div>
+
+    <div class="showcase-video">
+      <video autoplay muted loop playsinline preload="auto" poster="onlice-preview.png">
+        <source src="onlice.mp4" type="video/mp4">
+      </video>
+      <div class="video-glow"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div style="text-align:center;max-width:700px;margin:0 auto 60px;">
+      <span class="section-label" data-i18n="servLabel">Nos Services</span>
+      <h2 class="section-title" data-i18n="servTitle">Des solutions sur mesure<br>pour des résultats concrets.</h2>
+    </div>
+
+    <div class="grid-3">
+      <div class="card service-card">
+        <div class="service-icon">🧭</div>
+        <h4 data-i18n="s1Title">Stratégie & Conseil</h4>
+        <p data-i18n="s1Desc">Nous analysons, structurons et définissons les meilleures stratégies pour votre croissance durable.</p>
+        <div class="service-arrow" onclick="navigate('services')">
+          <span data-i18n="learnMore">En savoir plus</span>
+          <svg width="14" height="14" fill="none" viewBox="0 0 14 14"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+      </div>
+
+      <div class="card service-card">
+        <div class="service-icon">🎨</div>
+        <h4 data-i18n="s2Title">Branding & Design</h4>
+        <p data-i18n="s2Desc">Nous créons des identités fortes et des expériences visuelles qui marquent les esprits et fidélisent.</p>
+        <div class="service-arrow" onclick="navigate('services')">
+          <span data-i18n="learnMore">En savoir plus</span>
+          <svg width="14" height="14" fill="none" viewBox="0 0 14 14"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+      </div>
+
+      <div class="card service-card">
+        <div class="service-icon">⚙️</div>
+        <h4 data-i18n="s3Title">Développement</h4>
+        <p data-i18n="s3Desc">Nous développons des solutions digitales performantes, évolutives et adaptées à vos besoins précis.</p>
+        <div class="service-arrow" onclick="navigate('services')">
+          <span data-i18n="learnMore">En savoir plus</span>
+          <svg width="14" height="14" fill="none" viewBox="0 0 14 14"><path d="M2 7h10M7 2l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0;">
+    <div class="stats-row">
+      <div class="stat-item"><span class="stat-num" data-count="12">0</span><span class="stat-label" data-i18n="stat1">Projets lancés</span></div>
+      <div class="stat-item"><span class="stat-num" data-count="6">0</span><span class="stat-label" data-i18n="stat2">Membres experts</span></div>
+      <div class="stat-item"><span class="stat-num" data-count="4">0</span><span class="stat-label" data-i18n="stat3">Pays d'impact</span></div>
+      <div class="stat-item"><span class="stat-num" data-count="100">0</span><span class="stat-label" data-i18n="stat4">% Satisfaction</span></div>
+    </div>
+  </div>
+
+  <div class="scroll-visual-band" data-image="onlice2.jpg" style="--visual-fallback:url('https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1800&q=85');">
+    <div class="scroll-visual-overlay">
+      <span class="section-label" data-i18n="visual2Label">Créer</span>
+      <h3 data-i18n="visual2Title">Des expériences qui donnent envie d'aller plus loin.</h3>
+      <p data-i18n="visual2Text">Design, produit et technologie sont réunis pour rendre les solutions utiles et mémorables.</p>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0;">
+    <div class="clients-row">
+      <div class="client-logo"><div class="client-logo-dot"></div>echo</div>
+      <div class="client-logo"><div class="client-logo-dot"></div>NOVA</div>
+      <div class="client-logo"><div class="client-logo-dot"></div>Cloudly.</div>
+      <div class="client-logo"><div class="client-logo-dot"></div>frame</div>
+      <div class="client-logo"><div class="client-logo-dot"></div>lightbox</div>
+    </div>
+  </div>
+
+  <div class="scroll-visual-band" data-image="onlice1.jpg" style="--visual-fallback:url('https://images.unsplash.com/photo-1521737711867-e3b97375a996?auto=format&fit=crop&w=1800&q=85');">
+    <div class="scroll-visual-overlay">
+      <span class="section-label" data-i18n="visual1Label">Construire</span>
+      <h3 data-i18n="visual1Title">La stratégie avant la technologie.</h3>
+      <p data-i18n="visual1Text">Nous partons du problème, du terrain et des objectifs avant de choisir les outils.</p>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0;">
+    <div class="grid-2">
+      <div>
+        <span class="section-label" data-i18n="aboutLabel">À Propos</span>
+        <h2 class="section-title" data-i18n="aboutTitle">Une firme qui crée des entreprises.</h2>
+        <p class="section-sub" data-i18n="aboutDesc">onlice est bien plus qu'une agence. Nous sommes une firme hybride qui conçoit, incube et propulse des startups et entreprises innovantes — au Cameroun, en Afrique et au-delà.</p>
+        <button class="btn btn-glass" onclick="navigate('about')" data-i18n="aboutCTA">Découvrir notre mission →</button>
+      </div>
+
+      <div class="about-visual">
+        <canvas class="about-canvas" id="aboutMiniCanvas"></canvas>
+        <div class="about-badge">
+          <strong>2024</strong>
+          <span data-i18n="founded">Fondé au Cameroun</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-visual-band" data-image="onlice3.jpg" style="--visual-fallback:url('https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1800&q=85');">
+    <div class="scroll-visual-overlay">
+      <span class="section-label" data-i18n="visual3Label">Propulser</span>
+      <h3 data-i18n="visual3Title">Un lancement est le début du mouvement.</h3>
+      <p data-i18n="visual3Text">Nous pensons aussi à l'après : adoption, amélioration, croissance et impact.</p>
+    </div>
+  </div>
+
+  <div class="scroll-visual-band" data-image="onlice4.jpg" style="--visual-fallback:url('https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1800&q=85');">
+    <div class="scroll-visual-overlay">
+      <span class="section-label" data-i18n="visual4Label">Connecter</span>
+      <h3 data-i18n="visual4Title">Les bonnes idées prennent de la valeur quand elles connectent les bonnes personnes.</h3>
+      <p data-i18n="visual4Text">Produits, communautés et partenaires avancent ensemble pour créer des expériences utiles.</p>
+    </div>
+  </div>
+
+  <div class="scroll-visual-band" data-image="support.jpg" style="--visual-fallback:url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1800&q=85');">
+    <div class="scroll-visual-overlay">
+      <span class="section-label" data-i18n="visual5Label">Accélérer</span>
+      <h3 data-i18n="visual5Title">Une solution doit pouvoir évoluer avec ceux qui l'utilisent.</h3>
+      <p data-i18n="visual5Text">Nous pensons adoption, performance et croissance dès les premières décisions.</p>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0;">
+    <div style="text-align:center;margin-bottom:48px;">
+      <span class="section-label" data-i18n="testLabel">Témoignages</span>
+      <h2 class="section-title" data-i18n="testTitle">Ce que nos partenaires disent.</h2>
+    </div>
+
+    <div class="grid-3">
+      <div class="card testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <p data-i18n="t1">onlice a transformé notre vision en produit concret. L'équipe est réactive, créative et vraiment investie dans le succès de nos projets.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">AK</div>
+          <div><strong>Aminata Kouadio</strong><span>CEO, Finova Labs</span></div>
+        </div>
+      </div>
+
+      <div class="card testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <p data-i18n="t2">Le branding qu'ils ont créé pour nous a tout changé. Notre identité est maintenant reconnue sur tous les marchés où nous opérons.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">MN</div>
+          <div><strong>Moussa Ndifor</strong><span>Fondateur, AgriTech Cameroun</span></div>
+        </div>
+      </div>
+
+      <div class="card testimonial-card">
+        <div class="testimonial-quote">"</div>
+        <p data-i18n="t3">Une équipe hors pair. Leur approche stratégique nous a permis de lever des fonds et de structurer notre croissance internationale.</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">FB</div>
+          <div><strong>Fatima Bello</strong><span>COO, CloudPay Africa</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:0;text-align:center;">
+    <div class="home-cta-card" style="background:var(--bg-card);border:1px solid var(--glass-border);border-radius:32px;padding:80px 40px;position:relative;overflow:hidden;">
+      <div class="orb" style="width:400px;height:400px;background:radial-gradient(var(--c-teal),transparent);top:50%;left:50%;transform:translate(-50%,-50%);opacity:0.12;"></div>
+      <span class="section-label" data-i18n="ctaLabel">Prêt à démarrer ?</span>
+      <h2 class="section-title cta-title" data-i18n="ctaTitle">Rejoignez le mouvement.</h2>
+      <p style="color:var(--text-muted);max-width:420px;margin:0 auto 40px;font-size:0.95rem;" data-i18n="ctaSub">Que vous ayez une idée ou un projet structuré, nous sommes là pour le mettre en mouvement.</p>
+      <button class="btn btn-primary" onclick="navigate('contact')" data-i18n="ctaBtn">Parlons de votre projet →</button>
+    </div>
+  </div>
+
+</div>
+
+<div class="page" id="page-services">
+
+  <div class="page-header">
+    <span class="section-label" data-i18n="servLabel">Nos Services</span>
+    <h1 class="section-title">
+      <span data-i18n="servPageTitle">Des solutions à chaque étape</span><br>
+      <span class="grad-text" data-i18n="servPageTitleAccent">de votre croissance.</span>
+    </h1>
+    <p style="color:var(--text-muted);max-width:520px;margin:0 auto;font-size:0.95rem;" data-i18n="servPageSub">De la stratégie au développement, nous couvrons l'ensemble du spectre pour transformer votre vision en réalité.</p>
+  </div>
+
+  <div class="section" style="padding-top:60px;">
+
+    <div class="grid-3">
+      <div class="card service-card"><div class="service-icon">🧭</div><h4 data-i18n="s1Title">Stratégie & Conseil</h4><p data-i18n="s1Full">Audit digital, positionnement marché, roadmap produit et accompagnement dans la prise de décision stratégique.</p></div>
+      <div class="card service-card"><div class="service-icon">🎨</div><h4 data-i18n="s2Title">Branding & Design</h4><p data-i18n="s2Full">Identité visuelle, chartes graphiques, UI/UX design, motion design et design de systèmes complets.</p></div>
+      <div class="card service-card"><div class="service-icon">⚙️</div><h4 data-i18n="s3Title">Développement</h4><p data-i18n="s3Full">Applications web, mobile, API, back-office, intégrations tierces et infrastructures cloud scalables.</p></div>
+      <div class="card service-card"><div class="service-icon">📣</div><h4 data-i18n="s4Title">Marketing Digital</h4><p data-i18n="s4Full">SEO, campagnes paid, réseaux sociaux, content marketing et growth hacking orienté résultats.</p></div>
+      <div class="card service-card"><div class="service-icon">🤖</div><h4 data-i18n="s5Title">IA & Automatisation</h4><p data-i18n="s5Full">Intégration d'IA générative, chatbots intelligents, automatisation de workflows et analyse de données.</p></div>
+      <div class="card service-card"><div class="service-icon">🚀</div><h4 data-i18n="s6Title">Incubation Startup</h4><p data-i18n="s6Full">Accompagnement de startups de l'idée au lancement — financement, legal, produit, go-to-market.</p></div>
+    </div>
+
+    <div style="margin-top:80px;">
+      <span class="section-label" data-i18n="processLabel">Notre Processus</span>
+      <h2 class="section-title" style="margin-bottom:40px;" data-i18n="processTitle">Un processus clair et efficace.</h2>
+
+      <div class="process-steps">
+        <div class="process-step"><div class="step-num">01</div><div class="step-content"><h4 data-i18n="p1T">Découverte</h4><p data-i18n="p1D">Audit de l'existant, compréhension des objectifs et identification des leviers de croissance.</p></div></div>
+        <div class="process-step"><div class="step-num">02</div><div class="step-content"><h4 data-i18n="p2T">Stratégie</h4><p data-i18n="p2D">Définition de la roadmap, des KPIs et du plan d'action détaillé adapté à vos contraintes.</p></div></div>
+        <div class="process-step"><div class="step-num">03</div><div class="step-content"><h4 data-i18n="p3T">Création</h4><p data-i18n="p3D">Design, développement et production avec des cycles courts et des livrables réguliers.</p></div></div>
+        <div class="process-step"><div class="step-num">04</div><div class="step-content"><h4 data-i18n="p4T">Lancement & Suivi</h4><p data-i18n="p4D">Déploiement, monitoring et optimisation continue pour maximiser l'impact durable.</p></div></div>
+      </div>
+    </div>
+
+    <div class="scroll-visual-band compact-visual" data-image="onlice-preview.png">
+      <div class="scroll-visual-overlay">
+        <span class="section-label" data-i18n="servicesVisualLabel">Transformer</span>
+        <h3 data-i18n="servicesVisualTitle">De l'idée à une solution exploitable.</h3>
+        <p data-i18n="servicesVisualText">Chaque étape reste lisible, mesurable et adaptée aux contraintes réelles du projet.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:80px;">
+      <span class="section-label" data-i18n="pricingLabel">Tarifs</span>
+      <h2 class="section-title" style="margin-bottom:48px;text-align:center;" data-i18n="pricingTitle">Transparent et flexible.</h2>
+
+      <div class="grid-3">
+
+        <div class="card pricing-card">
+          <div class="pricing-name" data-i18n="plan1N">Starter</div>
+          <div class="pricing-price"><sup>$</sup>50<span data-i18n="perProject">/projet</span></div>
+          <div class="pricing-divider"></div>
+          <ul class="pricing-features">
+            <li data-i18n="pf1a">Audit & Diagnostic</li>
+            <li data-i18n="pf1b">Identité visuelle de base</li>
+            <li data-i18n="pf1c">Landing page</li>
+            <li data-i18n="pf1d">Support 30 jours</li>
+          </ul>
+          <button class="btn btn-glass" style="width:100%;justify-content:center;" onclick="navigate('contact')" data-i18n="choosePlan">Choisir</button>
+        </div>
+
+        <div class="card pricing-card featured">
+          <div class="pricing-badge" data-i18n="popular">Populaire</div>
+          <div class="pricing-name" data-i18n="plan2N">Growth</div>
+          <div class="pricing-price"><sup>$</sup>250<span data-i18n="perProject">/projet</span></div>
+          <div class="pricing-divider"></div>
+          <ul class="pricing-features">
+            <li data-i18n="pf2a">Stratégie complète</li>
+            <li data-i18n="pf2b">Branding full</li>
+            <li data-i18n="pf2c">Web App custom</li>
+            <li data-i18n="pf2d">Marketing setup</li>
+            <li data-i18n="pf2e">Support 90 jours</li>
+          </ul>
+          <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="navigate('contact')" data-i18n="choosePlan">Choisir</button>
+        </div>
+
+        <div class="card pricing-card">
+          <div class="pricing-name" data-i18n="plan3N">Enterprise</div>
+          <div class="pricing-price" style="font-size:2rem;" data-i18n="custom">Sur devis</div>
+          <div class="pricing-divider"></div>
+          <ul class="pricing-features">
+            <li data-i18n="pf3a">Solution 360°</li>
+            <li data-i18n="pf3b">Équipe dédiée</li>
+            <li data-i18n="pf3c">Incubation startup</li>
+            <li data-i18n="pf3d">Partenariat long terme</li>
+            <li data-i18n="pf3e">Support illimité</li>
+          </ul>
+          <button class="btn btn-glass" style="width:100%;justify-content:center;" onclick="navigate('contact')" data-i18n="contactUs">Nous contacter</button>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="page" id="page-about">
+
+  <div class="page-header">
+    <span class="section-label" data-i18n="aboutLabel">À Propos</span>
+    <h1 class="section-title">onlice — <span class="grad-text" data-i18n="aboutPageTitle">Solutions en Mouvement</span></h1>
+    <p style="color:var(--text-muted);max-width:520px;margin:0 auto;font-size:0.95rem;" data-i18n="aboutPageSub">Nous créons, incubons et propulsons des entreprises innovantes depuis le cœur du Cameroun.</p>
+  </div>
+
+  <div class="section" style="padding-top:60px;">
+
+    <div class="grid-2" style="margin-bottom:80px;">
+      <div>
+        <span class="section-label" data-i18n="missionLabel">Notre Mission</span>
+        <h2 class="section-title" data-i18n="missionTitle">Mettre en mouvement des idées qui comptent.</h2>
+        <p style="color:var(--text-muted);line-height:1.8;margin-bottom:24px;font-size:0.92rem;" data-i18n="missionText1">onlice est une firme hybride qui combine agence digitale, studio créatif et incubateur de startups. Nous ne nous contentons pas d'exécuter des projets — nous les co-construisons avec vous.</p>
+        <p style="color:var(--text-muted);line-height:1.8;margin-bottom:32px;font-size:0.92rem;" data-i18n="missionText2">Notre modèle unique nous permet de créer des sous-projets autonomes, de les structurer en entreprises, et d'en faire des acteurs majeurs de leurs secteurs respectifs.</p>
+
+        <div class="value-item">
+          <div class="value-dot"></div>
+          <div>
+            <h5 data-i18n="v1T">Excellence technique</h5>
+            <p data-i18n="v1D">Du code propre, des architectures robustes, des designs mémorables.</p>
+          </div>
+        </div>
+
+        <div class="value-item">
+          <div class="value-dot"></div>
+          <div>
+            <h5 data-i18n="v2T">Vision panafricaine</h5>
+            <p data-i18n="v2D">Ancrés au Cameroun, connectés au monde.</p>
+          </div>
+        </div>
+
+        <div class="value-item">
+          <div class="value-dot"></div>
+          <div>
+            <h5 data-i18n="v3T">Impact mesurable</h5>
+            <p data-i18n="v3D">Chaque action est orientée vers des résultats concrets et durables.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-visual">
+        <canvas class="about-canvas" id="aboutCanvas2"></canvas>
+        <div class="about-badge">
+          <strong data-i18n="aboutBadgeProjects">12+ Projets</strong>
+          <span data-i18n="aboutBadgeExperts">6 Experts</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <span class="section-label" data-i18n="teamLabel">L'Équipe</span>
+      <h2 class="section-title" style="margin-bottom:12px;" data-i18n="teamTitle">Les esprits derrière le mouvement.</h2>
+      <p style="color:var(--text-muted);max-width:560px;margin-bottom:48px;font-size:0.88rem;" data-i18n="teamSub">Ajoutez la photo de chaque fondateur ou membre — sans photo, ses initiales s'affichent automatiquement.</p>
+
+      <div class="grid-3">
+
+        <div class="card team-card">
+          <div class="team-avatar" data-photo="assets/team/founder-01.jpg"><span class="avatar-initials">ST</span></div>
+          <h5>Dev Stéphane</h5>
+          <div class="team-role" data-i18n="role1">Lead Designer</div>
+          <p style="font-size:0.82rem;color:var(--text-muted);margin-top:10px;" data-i18n="roleDesc1">Vision créative, UI/UX, identités visuelles.</p>
+        </div>
+
+        <div class="card team-card">
+          <div class="team-avatar" data-photo="assets/team/founder-02.jpg"><span class="avatar-initials">WA</span></div>
+          <h5>Dev Walter</h5>
+          <div class="team-role" data-i18n="role2">Project Manager</div>
+          <p style="font-size:0.82rem;color:var(--text-muted);margin-top:10px;" data-i18n="roleDesc2">Coordination des équipes et livraisons.</p>
+        </div>
+
+        <div class="card team-card">
+          <div class="team-avatar" data-photo="assets/team/founder-03.jpg"><span class="avatar-initials">YO</span></div>
+          <h5>Dev Yoshi</h5>
+          <div class="team-role" data-i18n="role3">Software Architect</div>
+          <p style="font-size:0.82rem;color:var(--text-muted);margin-top:10px;" data-i18n="roleDesc3">Architectures systèmes et infrastructures.</p>
+        </div>
+
+        <div class="card team-card">
+          <div class="team-avatar" data-photo="assets/team/founder-04.jpg"><span class="avatar-initials">DA</span></div>
+          <h5>Dev Danscot</h5>
+          <div class="team-role" data-i18n="role4">Growth Marketer</div>
+          <p style="font-size:0.82rem;color:var(--text-muted);margin-top:10px;" data-i18n="roleDesc4">Stratégies d'acquisition et de croissance.</p>
+        </div>
+
+        <div class="card team-card">
+          <div class="team-avatar" data-photo="assets/team/founder-05.jpg"><span class="avatar-initials">CR</span></div>
+          <h5>Dev Crazy</h5>
+          <div class="team-role" data-i18n="role5">Full-Stack Developer</div>
+          <p style="font-size:0.82rem;color:var(--text-muted);margin-top:10px;" data-i18n="roleDesc5">Développement front-end et back-end.</p>
+        </div>
+
+        <div class="card team-card">
+          <div class="team-avatar" data-photo="assets/team/founder-06.jpg"><span class="avatar-initials">KN</span></div>
+          <h5>Dev Knut</h5>
+          <div class="team-role" data-i18n="role6">Community Manager</div>
+          <p style="font-size:0.82rem;color:var(--text-muted);margin-top:10px;" data-i18n="roleDesc6">Animation communauté et modération.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div style="margin-top:80px;">
+      <span class="section-label" data-i18n="faqLabel">FAQ</span>
+      <h2 class="section-title" style="margin-bottom:40px;" data-i18n="faqTitle">Questions fréquentes.</h2>
+
+      <div id="faqList">
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span data-i18n="faq1Q">Qu'est-ce que onlice exactement ?</span>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-a" data-i18n="faq1A">onlice est une firme hybride qui combine les fonctions d'une agence digitale, d'un studio créatif et d'un incubateur de startups. Nous créons, développons et propulsons des entreprises innovantes.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span data-i18n="faq2Q">Comment se passe une collaboration ?</span>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-a" data-i18n="faq2A">Nous commençons par un appel de découverte gratuit, puis nous proposons une roadmap personnalisée avec devis. Après validation, nous travaillons en sprints agiles avec des points réguliers.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span data-i18n="faq3Q">Travaillez-vous avec des entreprises hors Cameroun ?</span>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-a" data-i18n="faq3A">Absolument. Si notre ancrage est camerounais, notre clientèle s'étend à l'international. Nous avons accompagné des projets en Europe, en Amérique du Nord et au Moyen-Orient.</div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-q" onclick="toggleFaq(this)">
+            <span data-i18n="faq4Q">Quels sont vos délais moyens ?</span>
+            <div class="faq-icon">+</div>
+          </div>
+          <div class="faq-a" data-i18n="faq4A">Un projet Starter est livré en 2-4 semaines, un projet Growth en 6-12 semaines. Les projets Enterprise ont des timelines personnalisées selon la complexité.</div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="page" id="page-portfolio">
+
+  <div class="page-header">
+    <span class="section-label" data-i18n="portLabel">Portfolio</span>
+    <h1 class="section-title"><span data-i18n="portTitle">Nos</span> <span class="grad-text" data-i18n="portTitleAccent">réalisations.</span></h1>
+    <p style="color:var(--text-muted);max-width:500px;margin:0 auto;font-size:0.95rem;" data-i18n="portSub">Projets créés, incubés et propulsés par l'équipe onlice.</p>
+  </div>
+
+  <div class="section" style="padding-top:60px;">
+
+    <div style="margin-bottom:60px;">
+
+      <div class="slideshow" id="mainSlideshow">
+
+        <div class="slide active" data-link="" style="background:#0B121A;">
+          <img class="slide-bg-image" src="mesdow1.jpg" alt="Projet Medows" loading="eager" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1600&q=85';">
+          <div class="slide-content">
+            <div class="project-tag" data-i18n="catBrand">Branding & Identité</div>
+            <h2 data-i18n="proj1T">Medows</h2>
+            <p data-i18n="proj1D">Identité visuelle complète, plateforme web et application mobile pour une marque camerounaise en pleine expansion.</p>
+          </div>
+        </div>
+
+        <div class="slide" data-link="https://whatooz.space" style="background:#0B121A;">
+          <img class="slide-bg-image" src="whatooz1.jpg" alt="Projet Whatooz" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=1600&q=85';">
+          <div class="slide-content">
+            <div class="project-tag" data-i18n="catDev">Développement</div>
+            <h2 data-i18n="proj2T">Whatooz</h2>
+            <p data-i18n="proj2D">Plateforme digitale connectant utilisateurs et partenaires avec une expérience fluide de bout en bout.</p>
+          </div>
+        </div>
+
+        <div class="slide" data-link="https://fachuu.vercel.app/" style="background:#0B121A;">
+          <img class="slide-bg-image" src="fachuu1.jpg" alt="Projet Fachuu" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1600&q=85';">
+          <div class="slide-content">
+            <div class="project-tag" data-i18n="catStrategy">Stratégie & Produit</div>
+            <h2 data-i18n="proj3T">Fachuu</h2>
+            <p data-i18n="proj3D">Produit digital pensé et lancé avec l'équipe onlice, de la stratégie à la mise en ligne.</p>
+          </div>
+        </div>
+
+        <div class="slide-dots" id="slideDots"></div>
+
+      </div>
+
+    </div>
+
+    <div class="grid-3 ecosystem-project-grid">
+
+      <div class="card project-card" data-link="">
+        <div class="project-bg ecosystem-project-bg" style="background:linear-gradient(135deg,#0B121A,#0B6E63);">
+          <img class="project-bg-image" src="looça.jpg" alt="Lookça" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="project-overlay">
+          <div class="project-tag" data-i18n="ecoTagLookca">Accessibilité numérique</div>
+          <h4>Lookça</h4>
+          <p data-i18n="ecoDescLookca">Une plateforme de mutualisation d'abonnements conçue pour rendre certains services numériques plus accessibles aux utilisateurs africains.</p>
+          <span class="project-visit" data-i18n="projectLinkPending">Lien à venir</span>
+        </div>
+      </div>
+
+      <div class="card project-card" data-link="https://fachuu.vercel.app/">
+        <div class="project-bg ecosystem-project-bg" style="background:linear-gradient(135deg,#0B121A,#0B6E63,#F5560B);">
+          <img class="project-bg-image" src="fachuu.jpg" alt="Fachuu" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="project-overlay">
+          <div class="project-tag" data-i18n="catStrategy">Stratégie & Produit</div>
+          <h4>Fachuu</h4>
+          <p data-i18n="proj3D">Produit digital pensé et lancé avec l'équipe onlice, de la stratégie à la mise en ligne.</p>
+          <span class="project-visit" data-i18n="visitProject">Découvrir le projet ↗</span>
+        </div>
+      </div>
+
+      <div class="card project-card" data-link="https://whatooz.space">
+        <div class="project-bg ecosystem-project-bg" style="background:linear-gradient(135deg,#0B121A,#F5560B);">
+          <img class="project-bg-image" src="whatooz.jpg" alt="Whatooz" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="project-overlay">
+          <div class="project-tag" data-i18n="ecoTagWhatooz">Automatisation WhatsApp</div>
+          <h4>Whatooz</h4>
+          <p data-i18n="ecoDescWhatooz">Whatooz transforme WhatsApp en véritable outil d'automatisation : interactions, catalogue, communication et outils commerciaux.</p>
+          <span class="project-visit" data-i18n="visitProject">Découvrir Whatooz ↗</span>
+        </div>
+      </div>
+
+      <div class="card project-card" data-link="https://nexcliq.online/">
+        <div class="project-bg ecosystem-project-bg" style="background:linear-gradient(135deg,#F5560B,#0B6E63);">
+          <img class="project-bg-image" src="nexcliq.jpg" alt="Nexcliq" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="project-overlay">
+          <div class="project-tag" data-i18n="ecoTagNexcliq">Services financiers</div>
+          <h4>Nexcliq</h4>
+          <p data-i18n="ecoDescNexcliq">Nexcliq explore de nouvelles façons de rendre les paiements, transferts et interactions financières plus simples grâce aux technologies numériques.</p>
+          <span class="project-visit" data-i18n="visitProject">Découvrir Nexcliq ↗</span>
+        </div>
+      </div>
+
+      <div class="card project-card" data-link="">
+        <div class="project-bg ecosystem-project-bg" style="background:linear-gradient(135deg,#0B121A,#14A392);">
+          <img class="project-bg-image" src="yoshilabs1.jpg" alt="Yoshi Labs" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="project-overlay">
+          <div class="project-tag" data-i18n="ecoTagYoshi">Laboratoire technologique</div>
+          <h4>Yoshi Labs</h4>
+          <p data-i18n="ecoDescYoshi">L'espace dédié à l'expérimentation, au développement d'outils, aux technologies open source et à la recherche de nouvelles solutions techniques.</p>
+          <span class="project-visit" data-i18n="projectLinkPending">Lien à venir</span>
+        </div>
+      </div>
+
+      <div class="card project-card" data-link="">
+        <div class="project-bg ecosystem-project-bg" style="background:linear-gradient(135deg,#10251F,#F5560B);">
+          <img class="project-bg-image" src="senstudio2.jpg" alt="SEN Studio" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="project-overlay">
+          <div class="project-tag" data-i18n="ecoTagSen">Créativité & Design</div>
+          <h4>SEN Studio</h4>
+          <p data-i18n="ecoDescSen">SEN Studio accompagne les marques et entreprises dans leur identité, leur communication, leur design et leur présence numérique.</p>
+          <span class="project-visit" data-i18n="projectLinkPending">Lien à venir</span>
+        </div>
+      </div>
+
+      <div class="card project-card" data-link="">
+        <div class="project-bg ecosystem-project-bg" style="background:linear-gradient(135deg,#0B6E63,#0B121A);">
+          <img class="project-bg-image" src="onlice-icon1.png" alt="OneAccess" loading="lazy" onerror="this.style.display='none'">
+        </div>
+        <div class="project-overlay">
+          <div class="project-tag" data-i18n="ecoTagOneAccess">Produits & Services</div>
+          <h4>OneAccess</h4>
+          <p data-i18n="ecoDescOneAccess">OneAccess rassemble des produits, services et ressources numériques destinés aux utilisateurs africains.</p>
+          <span class="project-visit" data-i18n="projectLinkPending">Lien à venir</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+<div class="page" id="page-contact">
+
+  <div class="page-header">
+    <span class="section-label" data-i18n="navContact">Contact</span>
+    <h1 class="section-title">
+      <span data-i18n="contactTitle">Parlons de votre</span><br>
+      <span class="grad-text" data-i18n="contactTitleAccent">prochain projet.</span>
+    </h1>
+    <p style="color:var(--text-muted);max-width:500px;margin:0 auto;font-size:0.95rem;" data-i18n="contactSub">Une idée, un projet, un partenariat ? Nous sommes là pour vous accompagner.</p>
+  </div>
+
+  <div class="section" style="padding-top:60px;">
+
+    <div class="grid-2" style="align-items:start;">
+
+      <div class="contact-visual-wrap">
+        <div class="scroll-visual-band contact-visual" data-image="lien.jpg">
+          <div class="scroll-visual-overlay">
+            <span class="section-label" data-i18n="contactVisualLabel">Parlons</span>
+            <h3 data-i18n="contactVisualTitle">Votre prochain projet peut commencer aujourd'hui.</h3>
+            <p data-i18n="contactVisualText">Un message suffit pour ouvrir la conversation.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form">
+        <h3 style="font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;margin-bottom:28px;" data-i18n="contactFormTitle">Envoyer un message</h3>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label data-i18n="fieldName">Nom complet</label>
+            <input type="text" id="f-name" data-i18n-placeholder="placeholderName" placeholder="Ton Nom">
+          </div>
+
+          <div class="form-group">
+            <label data-i18n="fieldEmail">Email</label>
+            <input type="email" id="f-email" data-i18n-placeholder="placeholderEmail" placeholder="ton@email.com">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label data-i18n="fieldCompany">Entreprise</label>
+            <input type="text" id="f-company" data-i18n-placeholder="placeholderCompany" placeholder="Ton entreprise ou projet">
+          </div>
+
+          <div class="form-group">
+            <label data-i18n="fieldService">Service souhaité</label>
+            <select id="f-service">
+              <option value="" data-i18n="selectOption">Sélectionner...</option>
+              <option data-i18n="s1Title">Stratégie & Conseil</option>
+              <option data-i18n="s2Title">Branding & Design</option>
+              <option data-i18n="s3Title">Développement</option>
+              <option data-i18n="s4Title">Marketing Digital</option>
+              <option data-i18n="s5Title">IA & Automatisation</option>
+              <option data-i18n="s6Title">Incubation Startup</option>
+              <option data-i18n="serviceOther">Autre</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group" style="margin-bottom:24px;">
+          <label data-i18n="fieldMsg">Message</label>
+          <textarea id="f-msg" data-i18n-placeholder="placeholderMsg" placeholder="Parle-nous de ton projet..."></textarea>
+        </div>
+
+        <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="submitForm()" data-i18n="sendMsg">Envoyer le message 🚀</button>
+      </div>
+
+      <div class="contact-info">
+
+        <div class="contact-item">
+          <div class="contact-icon">📧</div>
+          <div>
+            <h5>Email</h5>
+            <p>contact@onlice.com</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">💬</div>
+          <div>
+            <h5>WhatsApp</h5>
+            <p>+237 641 46 42 11</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">🌍</div>
+          <div>
+            <h5 data-i18n="location">Localisation</h5>
+            <p data-i18n="locationVal">Douala, Cameroun — Remote worldwide</p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">🕐</div>
+          <div>
+            <h5 data-i18n="hours">Disponibilité</h5>
+            <p data-i18n="hoursVal">Lun — Ven, 9h — 18h (WAT)</p>
+          </div>
+        </div>
+
+        <div style="padding:24px;background:var(--bg-card);border:1px solid var(--glass-border);border-radius:20px;">
+          <h5 style="font-family:'Syne',sans-serif;font-weight:700;margin-bottom:6px;" data-i18n="callTitle">Appel découverte gratuit</h5>
+          <p style="font-size:0.85rem;color:var(--text-muted);margin-bottom:16px;" data-i18n="callDesc">Réservez un appel de 30 min pour discuter de votre projet sans engagement.</p>
+          <button class="btn btn-glass" style="width:100%;justify-content:center;" onclick="openCallModal()" data-i18n="bookCall">Réserver un appel →</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page" id="page-cookies">
+  <div class="legal-content">
+    <h1 data-i18n="cookiePageTitle">Politique de Cookies</h1>
+    <p class="last-updated" data-i18n="lastUpdated">Dernière mise à jour : Janvier 2025</p>
+    <h2 data-i18n="c1T">Qu'est-ce qu'un cookie ?</h2>
+    <p data-i18n="c1P">Un cookie est un petit fichier texte stocké sur votre appareil lorsque vous visitez un site web. Ils permettent au site de mémoriser vos préférences et d'améliorer votre expérience de navigation.</p>
+    <h2 data-i18n="c2T">Types de cookies utilisés</h2>
+    <ul>
+      <li data-i18n="c2L1"><strong>Cookies essentiels :</strong> Nécessaires au fonctionnement du site.</li>
+      <li data-i18n="c2L2"><strong>Cookies analytiques :</strong> Nous aident à comprendre comment vous utilisez le site.</li>
+      <li data-i18n="c2L3"><strong>Cookies de préférence :</strong> Mémorisent vos paramètres (thème, langue).</li>
+    </ul>
+    <h2 data-i18n="c3T">Gestion des cookies</h2>
+    <p data-i18n="c3P">Vous pouvez configurer votre navigateur pour refuser tous les cookies. Notez que cela peut affecter certaines fonctionnalités du site.</p>
+    <h2 data-i18n="c4T">Contact</h2>
+    <p data-i18n="c4P">Pour toute question relative à notre politique de cookies, contactez-nous à : privacy@onlice.com</p>
+  </div>
+</div>
+
+<div class="page" id="page-privacy">
+  <div class="legal-content">
+    <h1 data-i18n="privTitle">Politique de Confidentialité</h1>
+    <p class="last-updated" data-i18n="lastUpdated">Dernière mise à jour : Janvier 2025</p>
+    <h2 data-i18n="pr1T">Données collectées</h2>
+    <p data-i18n="pr1P">Nous collectons les données que vous nous fournissez directement (formulaires de contact, newsletters) ainsi que les données de navigation anonymisées via nos outils analytiques.</p>
+    <h2 data-i18n="pr2T">Utilisation des données</h2>
+    <p data-i18n="pr2P">Vos données sont utilisées uniquement pour répondre à vos demandes, améliorer nos services, et vous envoyer des communications auxquelles vous avez consenti.</p>
+    <h2 data-i18n="pr3T">Vos droits</h2>
+    <p data-i18n="pr3P">Conformément à la réglementation camerounaise relative à la cybersécurité et à la protection des données, ainsi qu'aux standards internationaux pour nos clients à l'étranger, vous disposez d'un droit d'accès, de rectification, de suppression et de portabilité de vos données. Contactez-nous à privacy@onlice.com.</p>
+    <h2 data-i18n="pr4T">Partage des données</h2>
+    <p data-i18n="pr4P">Nous ne vendons ni ne louons vos données personnelles à des tiers. Nous pouvons partager des données agrégées et anonymisées à des fins d'analyse.</p>
+  </div>
+</div>
+
+<div class="page" id="page-terms">
+  <div class="legal-content">
+    <h1 data-i18n="termsTitle">Conditions Générales d'Utilisation</h1>
+    <p class="last-updated" data-i18n="lastUpdated">Dernière mise à jour : Janvier 2025</p>
+    <h2 data-i18n="t1T">Acceptation des conditions</h2>
+    <p data-i18n="t1P">En utilisant notre site et nos services, vous acceptez les présentes conditions d'utilisation. Si vous n'acceptez pas ces conditions, veuillez ne pas utiliser nos services.</p>
+    <h2 data-i18n="t2T">Services proposés</h2>
+    <p data-i18n="t2P">onlice propose des services de conseil en stratégie digitale, de branding, de développement logiciel, de marketing digital et d'incubation de startups.</p>
+    <h2 data-i18n="t3T">Propriété intellectuelle</h2>
+    <p data-i18n="t3P">L'ensemble du contenu du site (textes, images, logos, code) est protégé par les lois sur la propriété intellectuelle. Toute reproduction sans autorisation est interdite.</p>
+    <h2 data-i18n="t4T">Limitation de responsabilité</h2>
+    <p data-i18n="t4P">onlice ne peut être tenu responsable des dommages indirects résultant de l'utilisation de nos services. Notre responsabilité est limitée au montant des sommes versées pour le service concerné.</p>
+    <h2 data-i18n="t5T">Droit applicable</h2>
+    <p data-i18n="t5P">Les présentes conditions sont régies par le droit camerounais. Tout litige sera soumis aux juridictions compétentes de Douala, Cameroun.</p>
+  </div>
+</div>
+
+<footer id="mainFooter">
+
+  <div class="footer-portrait-shell" aria-hidden="true">
+    <img src="footer.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+  </div>
+
+  <div class="footer-grid">
+
+    <div class="footer-brand">
+      <a class="nav-logo" onclick="navigate('home')" style="display:inline-flex;align-items:center;gap:10px;margin-bottom:4px;">
+        <img src="onlice-icon.png" alt="onlice" class="logo-dark footer-logo-media">
+        <img src="onlice-favicon.png" alt="onlice" class="logo-light footer-logo-media">
+        <span class="nav-logo-name" style="font-size:1.1rem;">onli<span class="logo-accent">c</span>e</span>
+      </a>
+
+      <p data-i18n="footerAbout">Solutions créatives, innovantes et performantes pour propulser les entreprises camerounaises et africaines sur la scène mondiale.</p>
+
+      <div class="social-links" id="socialLinks"></div>
+    </div>
+
+    <div class="footer-col">
+      <h6 data-i18n="footNav">Navigation</h6>
+      <a onclick="navigate('home')" data-i18n="navHome">Accueil</a>
+      <a onclick="navigate('services')" data-i18n="navServices">Services</a>
+      <a onclick="navigate('about')" data-i18n="navAbout">À Propos</a>
+      <a onclick="navigate('portfolio')" data-i18n="navPortfolio">Projets</a>
+      <a onclick="navigate('contact')" data-i18n="navContact">Contact</a>
+    </div>
+
+    <div class="footer-col">
+      <h6 data-i18n="footLegal">Légal</h6>
+      <a onclick="navigate('terms')" data-i18n="footTerms">CGU</a>
+      <a onclick="navigate('privacy')" data-i18n="footPrivacy">Confidentialité</a>
+      <a onclick="navigate('cookies')" data-i18n="footCookies">Cookies</a>
+    </div>
+
+    <div class="footer-col">
+      <h6 data-i18n="footNewsletter">Newsletter</h6>
+
+      <div class="footer-newsletter">
+        <p data-i18n="newsletterDesc">Les dernières actualités onlice dans votre boîte.</p>
+
+        <div class="newsletter-input">
+          <input type="email" data-i18n-placeholder="newsletterPlaceholder" placeholder="ton@email.com" id="newsEmail">
+          <button onclick="subscribeNewsletter()" data-i18n="subscribe">OK →</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p><span id="copyYear">© 2024</span> — onlice — <span data-i18n="footerRights">Tous droits réservés.</span></p>
+
+    <div class="footer-bottom-links">
+      <a onclick="navigate('terms')" data-i18n="footTerms">CGU</a>
+      <a onclick="navigate('privacy')" data-i18n="footPrivacy">Confidentialité</a>
+      <a onclick="navigate('cookies')" data-i18n="footCookies">Cookies</a>
+    </div>
+  </div>
+
+</footer>
+
+<script>
+(function(){
+  const targets='.btn,.card,.project-card,.project-feature,.social-link,.slide-dot,.theme-toggle,.lang-btn';
+  let timer;
+
+  document.addEventListener('pointerdown',event=>{
+    const target=event.target.closest(targets);
+
+    if(!target){
+      return;
+    }
+
+    target.classList.remove('touch-neon');
+    void target.offsetWidth;
+    target.classList.add('touch-neon');
+
+    clearTimeout(timer);
+
+    timer=setTimeout(()=>{
+      target.classList.remove('touch-neon');
+    },1050);
+  },{passive:true});
+})();
+</script>
+
+<script>
+(function(){
+  const footerImage=document.querySelector('.footer-portrait-shell img');
+  const footerShell=document.querySelector('.footer-portrait-shell');
+  const video=document.querySelector('.showcase-video video');
+
+  function sizeFooterImage(){
+    if(!footerImage||!footerShell){
+      return;
+    }
+
+    if(window.innerWidth>=769){
+      footerShell.style.display='none';
+      return;
+    }
+
+    footerShell.style.display='block';
+
+    footerImage.style.width='auto';
+    footerImage.style.height='auto';
+    footerImage.style.maxWidth='min(100%,720px)';
+
+    const rect=footerImage.getBoundingClientRect();
+    const height=Math.ceil(rect.height);
+
+    if(height>0){
+      footerShell.style.setProperty(
+        '--footer-portrait-height',
+        height+'px'
+      );
+    }
+  }
+
+  if(footerImage){
+    if(footerImage.complete){
+      sizeFooterImage();
+    }else{
+      footerImage.addEventListener('load',sizeFooterImage,{once:true});
+    }
+
+    window.addEventListener('resize',sizeFooterImage,{passive:true});
+  }
+
+  if(video&&'IntersectionObserver' in window){
+    const observer=new IntersectionObserver(
+      entries=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting&&entry.intersectionRatio>=0.28){
+            const promise=video.play();
+
+            if(promise&&typeof promise.catch==='function'){
+              promise.catch(()=>{});
+            }
+          }else{
+            video.pause();
+          }
+        });
+      },
+      {threshold:[0,.28,.5,.75,1]}
+    );
+
+    observer.observe(video);
+  }else if(video){
+    video.muted=true;
+    video.play().catch(()=>{});
+  }
+})();
+</script>
+
+<script>
+(function(){
+  const slides=document.querySelectorAll('#mainSlideshow .slide');
+  const dotsContainer=document.getElementById('slideDots');
+  const slideshow=document.getElementById('mainSlideshow');
+
+  if(!slideshow||!slides.length||!dotsContainer){
+    return;
+  }
+
+  let current=0;
+  let interval=null;
+
+  dotsContainer.innerHTML='';
+
+  slides.forEach((slide,index)=>{
+    const dot=document.createElement('button');
+
+    dot.type='button';
+    dot.className='slide-dot';
+
+    if(index===0){
+      dot.classList.add('active');
+    }
+
+    dot.setAttribute('aria-label','Slide '+(index+1));
+
+    dot.addEventListener('click',event=>{
+      event.stopPropagation();
+      goTo(index,true);
+    });
+
+    dotsContainer.appendChild(dot);
+  });
+
+  const dots=dotsContainer.querySelectorAll('.slide-dot');
+
+  function goTo(index,restart){
+    if(index<0){
+      index=slides.length-1;
+    }
+
+    if(index>=slides.length){
+      index=0;
+    }
+
+    slides.forEach((slide,i)=>{
+      slide.classList.toggle('active',i===index);
+    });
+
+    dots.forEach((dot,i)=>{
+      dot.classList.toggle('active',i===index);
+    });
+
+    current=index;
+
+    if(restart){
+      restartAutoplay();
+    }
+  }
+
+  function restartAutoplay(){
+    clearInterval(interval);
+
+    interval=setInterval(()=>{
+      goTo((current+1)%slides.length,false);
+    },4800);
+  }
+
+  slideshow.addEventListener('click',event=>{
+    if(event.target.closest('.slide-dot')){
+      return;
+    }
+
+    const slide=event.target.closest('.slide.active');
+
+    if(!slide){
+      return;
+    }
+
+    const link=slide.getAttribute('data-link');
+
+    if(link){
+      window.open(link,'_blank','noopener,noreferrer');
+    }
+  });
+
+  slideshow.addEventListener('mouseenter',()=>{
+    clearInterval(interval);
+  });
+
+  slideshow.addEventListener('mouseleave',()=>{
+    restartAutoplay();
+  });
+
+  goTo(0,false);
+  restartAutoplay();
+})();
+</script>
+
+<script>
+(function(){
+  const logoSelector='.main-logo,.footer-logo-media,.ambient-brand-mark img';
+
+  function isNearWhite(r,g,b){
+    return r>228&&g>228&&b>228;
+  }
+
+  function processImage(img){
+    if(!img||img.dataset.bgProcessed==='1'){
+      return;
+    }
+
+    if(!img.complete||!img.naturalWidth||!img.naturalHeight){
+      img.addEventListener('load',()=>processImage(img),{once:true});
+      return;
+    }
+
+    try{
+      const canvas=document.createElement('canvas');
+      const ctx=canvas.getContext('2d');
+
+      if(!ctx){
+        return;
+      }
+
+      canvas.width=img.naturalWidth;
+      canvas.height=img.naturalHeight;
+
+      ctx.drawImage(img,0,0);
+
+      const imageData=ctx.getImageData(
+        0,
+        0,
+        canvas.width,
+        canvas.height
+      );
+
+      const data=imageData.data;
+      const width=canvas.width;
+      const height=canvas.height;
+      const visited=new Uint8Array(width*height);
+      const queue=[];
+
+      function index(x,y){
+        return y*width+x;
+      }
+
+      function nearWhiteAt(x,y){
+        const i=index(x,y)*4;
+
+        return isNearWhite(
+          data[i],
+          data[i+1],
+          data[i+2]
+        )&&data[i+3]>0;
+      }
+
+      function add(x,y){
+        if(x<0||y<0||x>=width||y>=height){
+          return;
+        }
+
+        const i=index(x,y);
+
+        if(visited[i]){
+          return;
+        }
+
+        if(!nearWhiteAt(x,y)){
+          return;
+        }
+
+        visited[i]=1;
+        queue.push([x,y]);
+      }
+
+      for(let x=0;x<width;x++){
+        add(x,0);
+        add(x,height-1);
+      }
+
+      for(let y=0;y<height;y++){
+        add(0,y);
+        add(width-1,y);
+      }
+
+      let pointer=0;
+
+      while(pointer<queue.length){
+        const [x,y]=queue[pointer++];
+
+        const i=index(x,y)*4;
+        data[i+3]=0;
+
+        add(x+1,y);
+        add(x-1,y);
+        add(x,y+1);
+        add(x,y-1);
+      }
+
+      ctx.putImageData(imageData,0,0);
+
+      const cleaned=canvas.toDataURL('image/png');
+
+      img.src=cleaned;
+      img.dataset.bgProcessed='1';
+      img.style.background='transparent';
+      img.style.mixBlendMode='normal';
+
+      if(img.classList.contains('ambient-brand-mark')){
+        img.style.background='transparent';
+      }
+    }catch(error){
+      img.dataset.bgProcessed='1';
+    }
+  }
+
+  function processAll(){
+    document.querySelectorAll(logoSelector).forEach(processImage);
+  }
+
+  if(document.readyState==='loading'){
+    document.addEventListener('DOMContentLoaded',processAll,{once:true});
+  }else{
+    processAll();
+  }
+
+  window.addEventListener('load',processAll,{once:true});
+})();
+</script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
